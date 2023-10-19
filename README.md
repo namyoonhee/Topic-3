@@ -37,3 +37,9 @@ Community
 
 # 문제 해결
 [문제 해결 과정](TROUBLE_SHOOTING.md)
+
+# 기술 스택
+1. 언어 JAVA (JDK 17)
+2. Spring Framework 3.1.4
+3. DB_MYSQL
+4. IDE Intellij 2023.2.2
