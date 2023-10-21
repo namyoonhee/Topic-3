@@ -36,7 +36,7 @@ Community
   - 사용자는 댓글 내용(텍스트)을 어색할 수 있습니다.
  
 # ERD
-![이미지]("https://github.com/namyoonhee/Topic-3/assets/135304661/bb2e7490-8a60-4ad1-acc4-5715e06ab19d">)
+![이미지](https://github.com/namyoonhee/Topic-3/assets/135304661/bb2e7490-8a60-4ad1-acc4-5715e06ab19d)
 
 # 문제 해결
 [문제 해결 과정](TROUBLE_SHOOTING.md)
