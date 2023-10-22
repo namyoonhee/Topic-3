@@ -41,7 +41,7 @@
   - 댓글 수정시 로그인이 필요합니다.
  
 # ERD
-![이미지](https://github.com/namyoonhee/Topic-3/assets/135304661/bb2e7490-8a60-4ad1-acc4-5715e06ab19d)
+![이미지]([https://github.com/namyoonhee/Topic-3/assets/135304661/bb2e7490-8a60-4ad1-acc4-5715e06ab19d](https://github.com/namyoonhee/Topic-3/assets/135304661/617a8849-1441-4667-88cf-4198d11e2148))
 
 # 문제 해결
 [문제 해결 과정](TROUBLE_SHOOTING.md)
