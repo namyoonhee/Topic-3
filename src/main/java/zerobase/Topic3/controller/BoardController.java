@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import zerobase.Topic3.dto.BoardDTO;
 import zerobase.Topic3.service.BoardService;
 
-@SuppressWarnings("checkstyle:MissingJavadocType")
 @Controller
 @RequiredArgsConstructor
 @RequestMapping("/board") // 대표주소 먼저 작성
@@ -21,7 +20,6 @@ public class BoardController { // board 로 시작하는 컨트롤러가 받는�
     return "detail";
   }
 
-  @SuppressWarnings({"checkstyle:AbbreviationAsWordInName", "checkstyle:MissingJavadocMethod"})
   @PostMapping("/detail") // post 로 보냈기 때문에
   // public String save(@RequestParam("boardWriter") String boardWriter) { // 이렇게 받아도 문제는 없음
   public String detail(@ModelAttribute BoardDTO boardDTO) {

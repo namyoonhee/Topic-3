@@ -29,7 +29,6 @@ public class MemberEntity {
 
   @Column private String memberBiretDate;
 
-  @SuppressWarnings({"checkstyle:MissingJavadocMethod", "checkstyle:AbbreviationAsWordInName"})
   public static MemberEntity toMemberEntity(MemberDTO memberDTO) {
     MemberEntity memberEntity = new MemberEntity();
     memberEntity.setMemberEmail(memberDTO.getMemberEmail());
@@ -39,7 +38,6 @@ public class MemberEntity {
     return memberEntity;
   }
 
-  @SuppressWarnings({"checkstyle:AbbreviationAsWordInName", "checkstyle:MissingJavadocMethod"})
   public static MemberEntity toUpdateMemberEntity(MemberDTO memberDTO) {
     MemberEntity memberEntity = new MemberEntity();
     memberEntity.setId(memberDTO.getId());

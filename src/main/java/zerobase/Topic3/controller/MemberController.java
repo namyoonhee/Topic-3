@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import zerobase.Topic3.dto.MemberDTO;
 import zerobase.Topic3.service.MemberService;
 
-@SuppressWarnings("checkstyle:MissingJavadocType")
 @Controller
 @RequiredArgsConstructor // 이 어노테이션이 만들어줌 (3)
 public class MemberController { // 컨트롤러 생성자(MemberController)를 (2)
@@ -25,7 +24,6 @@ public class MemberController { // 컨트롤러 생성자(MemberController)를 (
     return "save1";
   }
 
-  @SuppressWarnings({"checkstyle:MissingJavadocMethod", "checkstyle:AbbreviationAsWordInName"})
   @PostMapping("/member/save1") // DB 작업이 필요하게 되면 service repository 를 거치는 형태
   public String save1(@ModelAttribute MemberDTO memberDTO) {
     System.out.println("MemberController.save1");

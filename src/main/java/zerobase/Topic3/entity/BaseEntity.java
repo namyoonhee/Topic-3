@@ -9,7 +9,6 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
-@SuppressWarnings("checkstyle:MissingJavadocType")
 @MappedSuperclass
 @EntityListeners(AuditingEntityListener.class)
 @Getter

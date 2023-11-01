@@ -9,13 +9,12 @@ import zerobase.Topic3.dto.MemberDTO;
 import zerobase.Topic3.entity.MemberEntity;
 import zerobase.Topic3.repository.MemberRepository;
 
-@SuppressWarnings("checkstyle:MissingJavadocType")
 @Service // 스프링이 관리해주는 객체 즉, 스프링빈으로 등록 시킨다.
 @RequiredArgsConstructor
 public class MemberService {
   private final MemberRepository memberRepository;
 
-  @SuppressWarnings({"checkstyle:MissingJavadocMethod", "checkstyle:AbbreviationAsWordInName"})
+
   public void save1(MemberDTO memberDTO) {
     // 1. dto -> entity 변화
     // 2. repository 의 save 메서드 호출
@@ -25,11 +24,7 @@ public class MemberService {
     // repository 의 save 메서드 호출 (조건. entity 객체를 넘겨줘야 함)
   }
 
-  @SuppressWarnings({
-    "checkstyle:MethodParamPad",
-    "checkstyle:MissingJavadocMethod",
-    "checkstyle:AbbreviationAsWordInName"
-  })
+
   public MemberDTO login(MemberDTO memberDTO) {
     /*
     1. 회원이 입력한 이메일로 DB에서 조회를 함
@@ -56,7 +51,7 @@ public class MemberService {
     }
   }
 
-  @SuppressWarnings({"checkstyle:MissingJavadocMethod", "checkstyle:AbbreviationAsWordInName"})
+
   public List<MemberDTO> findAll() {
     List<MemberEntity> memberEntityList =
         memberRepository.findAll(); // Repository 가 제공해주는 메서드(findAll)
@@ -70,7 +65,7 @@ public class MemberService {
     return memberDTOList;
   }
 
-  @SuppressWarnings({"checkstyle:MissingJavadocMethod", "checkstyle:AbbreviationAsWordInName"})
+
   public MemberDTO findById(Long id) {
     Optional<MemberEntity> optionalMemberEntity = memberRepository.findById(id);
     if (optionalMemberEntity.isPresent()) {
@@ -84,7 +79,7 @@ public class MemberService {
     }
   }
 
-  @SuppressWarnings("checkstyle:MissingJavadocMethod")
+
   public MemberDTO updateForm(String myEmail) {
     Optional<MemberEntity> optionalMemberEntity = memberRepository.findByMemberEmail(myEmail);
     if (optionalMemberEntity.isPresent()) { // findById 와 거의 유사 방법
@@ -95,7 +90,6 @@ public class MemberService {
     }
   }
 
-  @SuppressWarnings("checkstyle:AbbreviationAsWordInName")
   public void update(MemberDTO memberDTO) {
     memberRepository.save(MemberEntity.toUpdateMemberEntity(memberDTO));
     // save: id가 없으면 Insert query 를 수행, DB에 있는 아이디가 있는 Entity 객체가 넘어오면 update query를 날려준다.

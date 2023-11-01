@@ -6,7 +6,6 @@ import lombok.Setter;
 import lombok.ToString;
 import zerobase.Topic3.entity.MemberEntity;
 
-@SuppressWarnings({"checkstyle:MissingJavadocType", "checkstyle:AbbreviationAsWordInName"})
 @Getter
 @Setter
 @NoArgsConstructor
@@ -19,7 +18,6 @@ public class MemberDTO {
   private String memberName;
   private String memberBiretDate;
 
-  @SuppressWarnings("checkstyle:MissingJavadocMethod")
   public static MemberDTO toMemberDTO(MemberEntity memberEntity) { // Entity 에 했던거와 반대로
     MemberDTO memberDTO = new MemberDTO();
     memberDTO.setId(memberEntity.getId());

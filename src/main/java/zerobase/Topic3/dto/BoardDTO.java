@@ -7,7 +7,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
-@SuppressWarnings({"checkstyle:MissingJavadocType", "checkstyle:AbbreviationAsWordInName"})
 // DTO (Data Transfer Object) 데이터를 전송할때 사용하는 객체라고 표현/ VO,Bean
 @Getter
 @Setter

@@ -10,7 +10,6 @@ import lombok.Getter;
 import lombok.Setter;
 import zerobase.Topic3.dto.BoardDTO;
 
-@SuppressWarnings("checkstyle:MissingJavadocType")
 // DB 의 테이블 역할을 하는 클래스
 @Entity
 @Getter
@@ -35,7 +34,6 @@ public class BoardEntity extends BaseEntity { // 상속
 
   @Column private int boardHits;
 
-  @SuppressWarnings({"checkstyle:MissingJavadocMethod", "checkstyle:AbbreviationAsWordInName"})
   public static BoardEntity toSaveEntity(BoardDTO boardDTO) { // 메서드로 정의
     // Entity 객체로 옮겨 담는 작업
     BoardEntity boardEntity = new BoardEntity();
