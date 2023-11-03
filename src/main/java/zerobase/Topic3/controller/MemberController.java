@@ -32,13 +32,12 @@ public class MemberController { // 컨트롤러 생성자(MemberController)를 (
     return "login";
   }
 
-  // /member/login 주소 요청이 왔을 때는("login") 로그인 페이지를 띄어주자
+  /** /member/login 주소 요청이 왔을 때는("login") 로그인 페이지를 띄어주자 */
   @GetMapping("/member/login")
   public String loginFrom() {
     return "login";
   }
 
-  @SuppressWarnings({"checkstyle:AbbreviationAsWordInName", "checkstyle:MissingJavadocMethod"})
   @PostMapping("/member/login")
   public String login(@ModelAttribute MemberDTO memberDTO, HttpSession session) {
     MemberDTO loginResult = memberService.login(memberDTO); // 로그인을 성공 했을 때만 담아서 주겠다는 것

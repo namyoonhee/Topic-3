@@ -15,7 +15,7 @@ import zerobase.Topic3.service.BoardService;
 public class BoardController { // board 로 시작하는 컨트롤러가 받는다 (1)
   private final BoardService boardService;
 
-  @GetMapping("detail") // 그 이하의 주소를 각각의 메서드 중에서 매핑 값이 일치하는 메서드가 호출 된다.
+  @GetMapping("/detail") // 그 이하의 주소를 각각의 메서드 중에서 매핑 값이 일치하는 메서드가 호출 된다.
   public String saveForm() {
     return "detail";
   }

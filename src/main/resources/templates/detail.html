@@ -10,7 +10,8 @@
 <!-- get 으로 보내면 주소창이 보이고, post 로 보내면 주소창이 안보인다.-->
 <form action="/board/detail" method="post">
   writer: <input type="text" name="boardWriter"> <br> <!-- 작성자 -->
-  pass: <input type="text" name="boardpass"> <br> <!-- 작성하는 글에 대한 비밀번호 -->
+  <!-- name 이 없으면 값이 담겨서 갈 수 있는 방법이 없다.-->
+  pass: <input type="text" name="boardPass"> <br> <!-- 작성하는 글에 대한 비밀번호 -->
   title: <input type="text" name="boardTitle"> <br> <!-- 제목 -->
   contents: <textarea name="boardContents" cols="30" rows="10"></textarea> <br> <!-- 내용 -->
   <input type="submit" value="글작성">
