@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>save1</title>
+</head>
+<body>
+<!-- action 속성: form 에 작성한 데이터를 어디로 보낼지 지정 -->
+<form action="/member/save1" method="post">
+  <!-- 사용자의 어떤 입력을 받고자 하는 부분은 input type 사용 -->
+  <!-- name 속성: 서버로 전송할 때 변수이름의 역할 -->
+  아이디: <input type="text" name="memberId"> <br>
+  이메일: <input type="text" name="memberEmail"> <br>
+  비밀번호: <input type="password" name="memberPassword"> <br>
+  이름: <input type="text" name="memberName"> <br>
+  생년월일: <input type="text" name="memberBiretDate"> <br>
+  <input type="submit" value="회원가입">
+</form>
+</body>
+</html>
