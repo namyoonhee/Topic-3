@@ -14,6 +14,6 @@ public interface BoardRepository extends JpaRepository<BoardEntity, Long> {
   @Query(
       value =
           "update BoardEntity b set b.boardHits=b.boardHits+1 where b.id=:id") // entity 기준으로 Query문
-  // 작성
+                                                                               // 작성
   void updateHits(@Param("id") Long id); // ("id") 부분이 id =:id 랑 매칭이 된다
 }

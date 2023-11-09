@@ -12,12 +12,20 @@
 <button onclick="saveReq()">글작성</button>
 <a href="/board/detail">글작성(링크)</a>
 <button onclick="listReq()">글목록</button>
+<botton onclick="pagingReq()">페이징목록</botton>
 <!--//자바스크립트 함수 호출 방식 (글 작성을 누르면 saveReq 라는 함수 호출)-->
 </body>
 <script>
   //function saveReq() {} 똑같은 정의 방식 , 그 이전 부터 사용되어 오던 함수 정의 방식 (차이 X)
-  const saveReq = () => { // ES6에서 사용하는 함수 정의 방식 (es6.. 찾아보기)
+  // ES6에서 사용하는 함수 정의 방식 (es6.. 찾아보기)
+  const saveReq = () => {
     location.href = "/board/detail";
+  }
+  const listReq = () => {
+    location.href = "/board/";
+  }
+  const pagingReq = () => {
+    location.href = "/board/paging";
   }
 </script>
 </html>

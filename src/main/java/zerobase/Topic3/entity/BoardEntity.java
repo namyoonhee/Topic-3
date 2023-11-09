@@ -44,5 +44,16 @@ public class BoardEntity extends BaseEntity { // 상속
     boardEntity.setBoardHits(0); // 조회수 값은 기본적으로 0
     return boardEntity; // 다옮겨 담으면 boardEntity 객체를 return
   }
+
+  public static BoardEntity toUpdateEntity(BoardDTO boardDTO) {
+    BoardEntity boardEntity = new BoardEntity();
+    boardEntity.setId(boardDTO.getId()); // 아이디가 있어야만 업데이트 커리가 전달될 수 있다.
+    boardEntity.setBoardWriter(boardDTO.getBoardWriter());
+    boardEntity.setBoardPass(boardDTO.getBoardPass());
+    boardEntity.setBoardTitle(boardDTO.getBoardTitle());
+    boardEntity.setBoardContents(boardDTO.getBoardContents());
+    boardEntity.setBoardHits(boardDTO.getBoardHits()); // 조회수 값은 기본적으로 0
+    return boardEntity; // 다옮겨 담으면 boardEntity 객체를 return
+  }
   // html 에서 입력한 값을 BoardDTO 로 담아왔고, 담겨있는 작성자 값을 Entity의 작성자 값으로 set (옮겨담는 작업)
 }

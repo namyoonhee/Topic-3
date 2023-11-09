@@ -53,7 +53,6 @@ public class MemberController { // 컨트롤러 생성자(MemberController)를 (
     }
   }
 
-  @SuppressWarnings({"checkstyle:AbbreviationAsWordInName", "checkstyle:MissingJavadocMethod"})
   @GetMapping("/member/") // 링크를 클릭하는 방식은 무조건 Get
   public String findAll(Model model) { // 스프링에서 실어 나르는 역할은 해주는 객체 (model)
     List<MemberDTO> memberDTOList = memberService.findAll(); // 회원은 여러개의 데이터를 가져옴, List 타입 사용
@@ -64,7 +63,6 @@ public class MemberController { // 컨트롤러 생성자(MemberController)를 (
     // Model model 를 받아서 memberList 에 담아서 "List" html 로 넘어간다.
   }
 
-  @SuppressWarnings({"checkstyle:AbbreviationAsWordInName", "checkstyle:MissingJavadocMethod"})
   @GetMapping("/member/{id}") // {id} 경로에 있는 어떤 값을 취하겠다
   public String findById(
       @PathVariable Long id, Model model) { // 경로 상에 있는 값을 가져올때는 @PathVariable 어노테이션 사용
@@ -74,7 +72,7 @@ public class MemberController { // 컨트롤러 생성자(MemberController)를 (
   }
 
   // 수정
-  @SuppressWarnings({"checkstyle:MissingJavadocMethod", "checkstyle:AbbreviationAsWordInName"})
+
   @GetMapping("/member/update")
   public String updateForm(HttpSession session, Model model) {
     //    내정보를 수정하는 거기 때문에 세션에 있는 로그인 이메일 값을 가져와서 그걸로 나의 전체 정보를 DB 로부터 가져온다
@@ -85,7 +83,6 @@ public class MemberController { // 컨트롤러 생성자(MemberController)를 (
     return "update";
   }
 
-  @SuppressWarnings({"checkstyle:AbbreviationAsWordInName", "checkstyle:MissingJavadocMethod"})
   @PostMapping("/member/update")
   public String update(@ModelAttribute MemberDTO memberDTO) {
     memberService.update(memberDTO);
@@ -94,7 +91,7 @@ public class MemberController { // 컨트롤러 생성자(MemberController)를 (
   }
 
   // 삭제 처리
-  @SuppressWarnings("checkstyle:MissingJavadocMethod")
+
   @GetMapping("/member/Id_delete/{id}") // 링크이기 때문에 GetMapping
   public String deleteById(@PathVariable Long id) { // 경로상으로 id 값을 같이 넘겨 받았기 때문에 @PathVariable 사용
     memberService.deleteById(id);
