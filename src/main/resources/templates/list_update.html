@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>list_update</title>
+</head>
+<body>
+<form action="/board/update" method="post" name="updateForm">
+  <!-- 요기 있는 정보를 가지고 /board/update 주소로 post 방식으로 전송이 된다. -->
+  <input type="hidden" name="id" th:value="${boardUpdate.id}"> <!-- 사용자에게는 보여지지 않게 하려면 hidden 작성 -->
+  writer: <input type="text" name="boardWriter" th:value="${boardUpdate.boardWriter}" readonly> <br>
+  <!-- (작성자) 보여는주지만 수정은 X , readonly 사용 -->
+  pass: <input type="text" name="boardPass" id="boardPass"> <br>
+  title: <input type="text" name="boardTitle" th:value="${boardUpdate.boardTitle}"> <br>
+  contents: <textarea name="boardContents" cols="30" rows="10"
+                      th:text="${boardUpdate.boardContents}"></textarea>
+  <input type="hidden" name="boardHits" th:value="${boardUpdate.boardHits}">
+  <!-- 조회수 값을 같이 가져가기 위해 hidden 사용 -->
+  <input type="button" value="글수정" onclick="boardUpdate()"> <!-- boardUpdate() 라는 함수 호출 -->
+</form>
+<script th:inline="javascript">
+  const boardUpdate = () => {
+    const pass = [[${boardUpdate.boardPass}]];
+    const inputPass = document.getElementById("boardPass").value;
+    if (pass == inputPass) {
+      document.updateForm.submit(); <!-- 현재 문서의 updateForm 라는 네임을 가진 (<form> 테그를 제출하겠다 라는 것 -->
+    } else {
+      alert("비밀번호가 일치하지 않습니다!");
+    }
+  }
+</script>
+</body>
+

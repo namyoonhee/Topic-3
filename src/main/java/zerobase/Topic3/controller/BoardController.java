@@ -1,9 +1,12 @@
 package zerobase.Topic3.controller;
 
-import ch.qos.logback.core.model.Model;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -49,5 +52,33 @@ public class BoardController { // board 로 시작하는 컨트롤러가 받는�
     BoardDTO boardDTO = boardService.findById(id); // 두번의 호출이 발생 (2)
     model.addAttribute("board", boardDTO);
     return "list lookup";
+  }
+
+  @GetMapping("/list_update/{id}")
+  public String updateForm(@PathVariable Long id, Model model) { // 데이터를 담아야하니 model
+    BoardDTO boardDTO = boardService.findById(id);
+    model.addAttribute("boardUpdate", boardDTO);
+    return "list_update";
+  }
+
+  @PostMapping("/update")
+  public String update(@ModelAttribute BoardDTO boardDTO, Model model) {
+    BoardDTO board = boardService.update(boardDTO);
+    model.addAttribute("board", board);
+    return "list lookup";
+  }
+
+  @GetMapping("/delete/{id}")
+  public String delete(@PathVariable Long id) {
+    boardService.delete(id);
+    return "redirect:/board/";
+  }
+
+  // /board/paging?page=1 이런식으로 요청이감
+  @GetMapping("/paging")
+  public String paging(@PageableDefault(page = 1) Pageable pageable, Model model) {
+    // 페이징 처리된 데이터를 가지고 화면으로 넘어가야하기 때문에 model 객체 사용
+    // pageable.getPageNumber();
+    Page<BoardDTO> boardList = boardService.paging(pageable);
   }
 }
