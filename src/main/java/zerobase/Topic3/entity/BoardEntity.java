@@ -1,11 +1,16 @@
 package zerobase.Topic3.entity;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import java.util.ArrayList;
+import java.util.List;
 import lombok.Getter;
 import lombok.Setter;
 import zerobase.Topic3.dto.BoardDTO;
@@ -34,16 +39,37 @@ public class BoardEntity extends BaseEntity { // 상속
 
   @Column private int boardHits;
 
+  @Column private int fileAttached; // 1 or 0
+
+  @OneToMany(
+      mappedBy = "boardEntity",
+      cascade = CascadeType.REMOVE,
+      orphanRemoval = true,
+      fetch = FetchType.LAZY)
+  private List<BoardFileEntity> boardFileEntityList = new ArrayList<>(); // 부모클래스
+
+  // 부모가 삭제되면 자식도 함께 삭제 된다.
+  @OneToMany(
+      mappedBy = "boardEntity",
+      cascade = CascadeType.REMOVE,
+      orphanRemoval = true,
+      fetch = FetchType.LAZY)
+  private List<CommentEntity> commentEntityList = new ArrayList<>();
+
   public static BoardEntity toSaveEntity(BoardDTO boardDTO) { // 메서드로 정의
     // Entity 객체로 옮겨 담는 작업
+    // 파일이 없는 경우에 호출한다.
     BoardEntity boardEntity = new BoardEntity();
     boardEntity.setBoardWriter(boardDTO.getBoardWriter());
     boardEntity.setBoardPass(boardDTO.getBoardPass());
     boardEntity.setBoardTitle(boardDTO.getBoardTitle());
     boardEntity.setBoardContents(boardDTO.getBoardContents());
     boardEntity.setBoardHits(0); // 조회수 값은 기본적으로 0
+    boardEntity.setFileAttached(0); // 파일 없음
     return boardEntity; // 다옮겨 담으면 boardEntity 객체를 return
   }
+
+  // html 에서 입력한 값을 BoardDTO 로 담아왔고, 담겨있는 작성자 값을 Entity의 작성자 값으로 set (옮겨담는 작업)
 
   public static BoardEntity toUpdateEntity(BoardDTO boardDTO) {
     BoardEntity boardEntity = new BoardEntity();
@@ -55,5 +81,15 @@ public class BoardEntity extends BaseEntity { // 상속
     boardEntity.setBoardHits(boardDTO.getBoardHits()); // 조회수 값은 기본적으로 0
     return boardEntity; // 다옮겨 담으면 boardEntity 객체를 return
   }
-  // html 에서 입력한 값을 BoardDTO 로 담아왔고, 담겨있는 작성자 값을 Entity의 작성자 값으로 set (옮겨담는 작업)
+
+  public static BoardEntity toSaveFileEntity(BoardDTO boardDTO) {
+    BoardEntity boardEntity = new BoardEntity();
+    boardEntity.setBoardWriter(boardDTO.getBoardWriter());
+    boardEntity.setBoardPass(boardDTO.getBoardPass());
+    boardEntity.setBoardTitle(boardDTO.getBoardTitle());
+    boardEntity.setBoardContents(boardDTO.getBoardContents());
+    boardEntity.setBoardHits(0); // 조회수 값은 기본적으로 0
+    boardEntity.setFileAttached(1); // 파일 있음
+    return boardEntity; // 다옮겨 담으면 boardEntity 객체를 return
+  }
 }
